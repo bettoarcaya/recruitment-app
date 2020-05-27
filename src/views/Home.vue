@@ -1,8 +1,11 @@
 <template>
   <div class="h-64 grid grid-rows-3 grid-flow-col gap-4">
     <div></div>
-    <div class="container mx-auto">
-      <h1 class="text-left">Job list</h1>
+    <div class="container mx-auto border-b border-black-400">
+      <h1 class="float-left">Job list</h1>
+      <button class="btn btn-blue float-right">
+        Add new job
+      </button>
     </div>
     <div class="container mx-auto">
       <!--<img alt="Vue logo" src="../assets/logo.png" class="object-none object-center">
@@ -32,6 +35,11 @@
             <div class="text-sm">
               <p class="text-gray-900 leading-none">Commpany name</p>
               <p class="text-gray-600">Aug 18</p>
+            </div>
+            <div class="container">
+              <button class="btn btn-green float-right">
+                Find candidates
+              </button>
             </div>
           </div>
         </div>
