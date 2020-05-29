@@ -115,7 +115,7 @@ export default {
 				}
 			},
 			submit(){
-				this.$http.post()
+				this.$http.post('http://recruitment-api.test/jobs', this.form)
 						.then(response => {
 
 						})
