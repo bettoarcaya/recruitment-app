@@ -17,4 +17,10 @@
 .btn-green {
     @apply bg-green-500 text-white;
 }
+.margin-b-10 {
+    margin-bottom: 10px;
+}
+.card {
+    @apply max-w-sm w-full;
+}
 

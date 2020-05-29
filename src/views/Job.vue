@@ -8,10 +8,7 @@
       </button>
     </div>
     <div class="container mx-auto">
-      <!--<img alt="Vue logo" src="../assets/logo.png" class="object-none object-center">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-
-      <div class="max-w-sm w-full lg:max-w-full lg:flex">
+      <div class="card lg:max-w-full lg:flex margin-b-10" v-for="job in jobs" :key="job.id">
         <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
           <img 
             class="w-100 h-100 mr-4" 
@@ -54,7 +51,7 @@ export default {
     mounted(){
         this.$http.get('http://recruitment-api.test/jobs')
             .then(response => {
-                console.log(response.data);
+                this.jobs = response.data.data
             })
     },
     data(){
