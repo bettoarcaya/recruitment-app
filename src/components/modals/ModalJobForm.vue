@@ -50,6 +50,18 @@
 								>
 								<p class="text-red-500 text-xs italic" v-if="errors.experience_years">Please fill out this field.</p>
 							</div>
+							<div class="w-full px-3 mb-6 md:mb-0">
+								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+									Description
+								</label>
+								<textarea 
+									class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+									id="grid-description"
+									placeholder="Job description" 
+									v-model="form.description"
+								>
+								</textarea>
+							</div>
 						</div>
 						<div class="flex flex-wrap -mx-3 mb-2">
 							<div class="w-full px-3 mb-6 md:mb-0">
@@ -110,7 +122,7 @@ export default {
 					company_name: null,
 					title: null,
 					experience_years: null,
-					catg_position_id: null,
+					catg_position_id: 3,
 					position_type: null
 				}
 			},
