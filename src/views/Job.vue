@@ -30,7 +30,7 @@
           <div class="flex items-center">
             <img class="w-10 h-10 rounded-full mr-4" src="../assets/logo.png" alt="Avatar of Jonathan Reinink">
             <div class="text-sm">
-              <p class="text-gray-900 leading-none">Commpany name</p>
+              <p class="text-gray-900 leading-none">{{job.company_name}}</p>
               <p class="text-gray-600">Aug 18</p>
             </div>
             <div class="container">
@@ -52,6 +52,7 @@ export default {
         this.$http.get('http://recruitment-api.test/jobs')
             .then(response => {
                 this.jobs = response.data.data
+                console.log(this.jobs)
             })
     },
     data(){
