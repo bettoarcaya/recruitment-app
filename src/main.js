@@ -3,12 +3,14 @@ import App from './App.vue';
 import router from './router';
 import Axios from 'axios';
 import Notifications from 'vue-notification';
+import VModal from 'vue-js-modal'
 
 Vue.prototype.$http = Axios;
 
 Vue.config.productionTip = false;
 
 Vue.use(Notifications)
+Vue.use(VModal, { dynamic: true, injectModalsContainer: true })
 
 new Vue({
   router,

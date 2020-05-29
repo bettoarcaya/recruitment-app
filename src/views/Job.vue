@@ -76,6 +76,9 @@ export default {
         }
     },
     methods: {
+      showModalForm(){
+        this.$modal.show(ModalJobForm)
+      }
     }
 }
 </script>
