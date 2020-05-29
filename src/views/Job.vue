@@ -2,7 +2,7 @@
   <div class="h-64 grid grid-rows-3 grid-flow-col gap-4">
     <div></div>
     <div class="container mx-auto border-b border-black-400">
-      <h1 class="float-left">Job list</h1>
+      <h1 class="float-left">{{ name }}</h1>
       <button class="btn btn-blue float-right">
         Add new job
       </button>
@@ -49,7 +49,21 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'Job',
+    mounted(){
+        this.$http.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .then(response => {
+                this.info = response.data.bpi
+            })
+    },
+    data(){
+        return{
+            name: 'Job list',
+            info: {}
+        }
+    }
 }
 </script>
