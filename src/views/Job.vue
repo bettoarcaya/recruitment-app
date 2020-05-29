@@ -49,20 +49,18 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
     name: 'Job',
     mounted(){
-        this.$http.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        this.$http.get('http://recruitment-api.test/jobs')
             .then(response => {
-                this.info = response.data.bpi
+                console.log(response.data);
             })
     },
     data(){
         return{
             name: 'Job list',
-            info: {}
+            jobs: {}
         }
     }
 }
