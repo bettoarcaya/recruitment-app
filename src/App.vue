@@ -37,6 +37,7 @@
       </div>
     </nav>
     <router-view/>
+    <notifications/>
   </div>
 </template>
 

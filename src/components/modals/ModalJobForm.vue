@@ -117,7 +117,11 @@ export default {
 			submit(){
 				this.$http.post('http://recruitment-api.test/jobs', this.form)
 						.then(response => {
-
+							this.$notify({
+								type: 'success',
+								title: 'well done',
+								text: 
+							});
 						})
 			}
 		}

@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import Axios from 'axios'
+import Axios from 'axios';
+import Notifications from 'vue-notification';
 
 Vue.prototype.$http = Axios;
+
 Vue.config.productionTip = false;
+
+Vue.use(Notifications)
 
 new Vue({
   router,
