@@ -120,7 +120,7 @@ export default {
 							this.$notify({
 								type: 'success',
 								title: 'well done',
-								text: 
+								text: ''
 							});
 						})
 			}
