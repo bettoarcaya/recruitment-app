@@ -22,7 +22,7 @@
 									placeholder="Microsoft" 
 									v-model="form.company_name"
 								>
-								<p class="text-red-500 text-xs italic">Please fill out this field.</p>
+								<p class="text-red-500 text-xs italic" v-if="errors.company_name">Please fill out this field.</p>
 							</div>
 							<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -35,7 +35,7 @@
 									placeholder="Back-end dev" 
 									v-model="form.title"
 								>
-								<p class="text-red-500 text-xs italic">Please fill out this field.</p>
+								<p class="text-red-500 text-xs italic" v-if="errors.title">Please fill out this field.</p>
 							</div>
 							<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -48,7 +48,7 @@
 									placeholder="5" 
 									v-model="form.experience_years"
 								>
-								<p class="text-red-500 text-xs italic">Please fill out this field.</p>
+								<p class="text-red-500 text-xs italic" v-if="errors.experience_years">Please fill out this field.</p>
 							</div>
 						</div>
 						<div class="flex flex-wrap -mx-3 mb-2">
@@ -70,7 +70,7 @@
 											{{jobCateg.name}}
 										</option>
 									</select>
-									<p class="text-red-500 text-xs italic">Please fill out this field.</p>
+									<p class="text-red-500 text-xs italic" v-if="errors.catg_position_id">Please fill out this field.</p>
 								</div>
 							</div>
 						</div>
@@ -96,14 +96,12 @@ export default {
     data(){
 			return {
 				jobCategories: {},
-				form: {}
+				form: {},
+				errors: {}
 			}
     },
     mounted(){
-			this.$http.get('http://recruitment-api.test/categories')
-					.then(response => {
-							this.jobCategories = response.data.data
-					})
+			this.getRecords();
 			this.initForm();
 		},
 		methods: {
@@ -116,6 +114,12 @@ export default {
 					position_type: null
 				}
 			},
+			getRecords(){
+				this.$http.get('http://recruitment-api.test/categories')
+					.then(response => {
+							this.jobCategories = response.data.data
+					})
+			},
 			submit(){
 				this.$http.post('http://recruitment-api.test/jobs', this.form)
 						.then(response => {
@@ -124,6 +128,7 @@ export default {
 								title: 'well done',
 								text: ''
 							});
+							this.getRecords();
 						})
 			}
 		}

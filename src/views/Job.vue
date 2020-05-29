@@ -77,7 +77,7 @@ export default {
     },
     methods: {
       showModalForm(){
-        this.$modal.show(ModalJobForm)
+        //this.$modal.show(ModalJobForm)
       }
     }
 }
