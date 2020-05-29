@@ -35,9 +35,12 @@
                 <p class="text-gray-600">Aug 18</p>
               </div>
               <div class="container">
-                <button class="btn btn-green float-right">
+                <router-link 
+                  to="/jobs/match/"
+                  class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 btn btn-green float-right"
+                >
                   Find candidates
-                </button>
+                </router-link>
               </div>
             </div>
           </div>
