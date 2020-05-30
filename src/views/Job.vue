@@ -36,7 +36,7 @@
               </div>
               <div class="container">
                 <router-link 
-                  to="/jobs/match/"
+                  :to="{ name: 'Matches', params: { id: job.id } }"
                   class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 btn btn-green float-right"
                 >
                   Find candidates

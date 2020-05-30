@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Job from '../views/Job.vue';
+import Match from '../views/Match.vue';
 
 Vue.use(VueRouter);
 
@@ -12,9 +13,9 @@ const routes = [
     component: Job,
   },
   {
-    path: '/jobs/match/{id}',
+    path: '/jobs/match/:id',
     name: 'Matches',
-    component: Job,
+    component: Match,
   },
   {
     path: '/about',
