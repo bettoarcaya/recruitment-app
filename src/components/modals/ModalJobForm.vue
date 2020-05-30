@@ -50,6 +50,34 @@
 								>
 								<p class="text-red-500 text-xs italic" v-if="errors.experience_years">Please fill out this field.</p>
 							</div>
+							<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+									Work type
+								</label>
+								<input 
+									id="radio1" 
+									type="radio" 
+									name="radio" 
+									class="hidden"
+									v-model="form.position_type"
+									checked 
+								/>
+								<label for="radio1" class="flex items-center cursor-pointer">
+									<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+									Remote
+								</label>
+								<input 
+									id="radio2" 
+									type="radio" 
+									name="radio"
+									class="hidden"
+									v-model="form.position_type"
+								/>
+								<label for="radio2" class="flex items-center cursor-pointer">
+									<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+									On site
+								</label>
+							</div>
 							<div class="w-full px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
 									Description
@@ -123,7 +151,7 @@ export default {
 					title: null,
 					experience_years: null,
 					catg_position_id: 3,
-					position_type: null
+					position_type: 'remote'
 				}
 			},
 			getRecords(){
