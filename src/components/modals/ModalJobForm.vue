@@ -6,7 +6,7 @@
 					<a href="javascript:void(0)" @click="$emit('close')">
 						<span class="close float-right">&times;</span>
 					</a>
-					<h2 class="text-left">Add new job</h2>
+					<h2 class="text-left font-bold text-xl">Add new job</h2>
 				</div>
 				<div class="modal-body">
 					<form class="w-full max-w-lg" @submit="submit">
@@ -178,6 +178,7 @@ export default {
 							this.initForm();
 						})
 						.catch(error => {
+							console.log(error);
 							this.$notify({
 								type: 'error',
 								title: 'Something is bad',

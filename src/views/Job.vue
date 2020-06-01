@@ -3,7 +3,7 @@
     <div class="h-64 grid grid-rows-3 grid-flow-col gap-4">
       <div></div>
       <div class="container mx-auto border-b border-black-400">
-        <h1 class="float-left">{{ name }}</h1>
+        <h1 class="float-left font-bold text-2xl">{{ name }}</h1>
         <button class="btn btn-blue float-right" @click="modalForm = true">
           Add new job
         </button>
@@ -20,7 +20,7 @@
                 >
               </div>
               <div class="w-4/5 flex-none">
-                <div class="mb-8">
+                <div class="margin-b-9-percent flex flex-col">
                   <!--<p class="text-sm text-gray-600 flex items-center">
                     <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                       <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
