@@ -27,7 +27,9 @@
                     </svg>
                     Members only
                   </p>-->
-                  <div class="text-gray-900 font-bold text-xl mb-2 text-left"> {{ job.title }} </div>
+                  <div class="text-gray-900 font-bold text-xl mb-2 text-left"> 
+                    {{ job.title }} 
+                  </div>
                   <div class="text-left">
                     <p class="text-gray-700 text-base">
                       {{ job.description }}
@@ -42,7 +44,12 @@
                   </div>
                   <div class="container">
                     <router-link 
-                      :to="{ name: 'Matches', params: { id: job.id } }"
+                      :to="{ 
+                        name: 'Matches', 
+                        params: { 
+                          id: job.id 
+                        } 
+                      }"
                       class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4 btn btn-green float-right"
                     >
                       Find candidates
