@@ -20,6 +20,9 @@
 .margin-b-10 {
     margin-bottom: 10px;
 }
+.margin-l-5 {
+  margin-left: 5px;
+}
 .card {
     @apply max-w-sm w-full;
 }

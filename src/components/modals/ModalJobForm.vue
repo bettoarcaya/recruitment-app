@@ -54,29 +54,36 @@
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
 									Work type
 								</label>
-								<input 
-									id="radio1" 
-									type="radio" 
-									name="radio" 
-									class="hidden"
-									v-model="form.position_type"
-									checked 
-								/>
-								<label for="radio1" class="flex items-center cursor-pointer">
-									<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-									Remote
-								</label>
-								<input 
-									id="radio2" 
-									type="radio" 
-									name="radio"
-									class="hidden"
-									v-model="form.position_type"
-								/>
-								<label for="radio2" class="flex items-center cursor-pointer">
-									<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
-									On site
-								</label>
+								<div class="inline-flex">
+									<div class="margin-l-5" style="magin-left: 10px;">
+										<input 
+											id="radio1" 
+											type="radio" 
+											name="radio" 
+											class="hidden"
+											value="remote"
+											v-model="form.position_type"
+										/>
+										<label for="radio1" class="flex items-center cursor-pointer">
+											<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+											Remote
+										</label>
+									</div>
+									<div>
+										<input 
+											id="radio2" 
+											type="radio" 
+											name="radio"
+											class="hidden"
+											value="onsite"
+											v-model="form.position_type"
+										/>
+										<label for="radio2" class="flex items-center cursor-pointer">
+											<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+											On site
+										</label>
+									</div>
+								</div>
 							</div>
 							<div class="w-full px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -161,7 +168,8 @@ export default {
 					})
 			},
 			submit(){
-				this.$http.post('http://recruitment-api.test/jobs', this.form)
+				console.log(this.form);
+				/*this.$http.post('http://recruitment-api.test/jobs', this.form)
 						.then(response => {
 							this.$notify({
 								type: 'success',
@@ -169,7 +177,7 @@ export default {
 								text: ''
 							});
 							this.getRecords();
-						})
+						})*/
 			}
 		}
 }
