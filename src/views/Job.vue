@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="container mx-auto">
-        <div class="card lg:max-w-full lg:flex margin-b-10" v-for="job in jobs" :key="job.id">
+        <div class="card lg:flex margin-b-10" v-for="job in jobs" :key="job.id">
           <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
             <img 
               class="w-100 h-100 mr-4" 
@@ -25,8 +25,10 @@
                 </svg>
                 Members only
               </p>-->
-              <div class="text-gray-900 font-bold text-xl mb-2 text-left">Job title</div>
-              <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+              <div class="text-gray-900 font-bold text-xl mb-2 text-left"> {{ job.title }} </div>
+              <p class="text-gray-700 text-base">
+                {{ job.description }}
+              </p>
             </div>
             <div class="flex items-center">
               <img class="w-10 h-10 rounded-full mr-4" src="../assets/logo.png" alt="Avatar of Jonathan Reinink">
@@ -50,7 +52,7 @@
 
     <modal-job-form 
       v-if="modalForm"
-      @close="modalForm = false"
+      @close="close()"
     ></modal-job-form>
 
   </div>
@@ -65,11 +67,7 @@ export default {
       ModalJobForm,
     },
     mounted(){
-        this.$http.get('http://recruitment-api.test/jobs')
-            .then(response => {
-                this.jobs = response.data.data
-                console.log(this.jobs)
-            })
+      this.getRecords();  
     },
     data(){
         return{
@@ -81,6 +79,17 @@ export default {
     methods: {
       showModalForm(){
         //this.$modal.show(ModalJobForm)
+      },
+      getRecords(){
+        this.$http.get('http://recruitment-api.test/jobs')
+            .then(response => {
+                this.jobs = response.data.data.data
+                console.log(this.jobs)
+            })
+      },
+      close(){
+        this.modalForm = false;
+        this.getRecords();
       }
     }
 }

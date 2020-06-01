@@ -24,7 +24,7 @@
   margin-left: 5px;
 }
 .card {
-    @apply max-w-sm w-full;
+    @apply w-full;
 }
    /* Modal Header */
 .modal-header {

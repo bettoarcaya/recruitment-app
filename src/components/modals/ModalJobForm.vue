@@ -168,16 +168,22 @@ export default {
 					})
 			},
 			submit(){
-				console.log(this.form);
-				/*this.$http.post('http://recruitment-api.test/jobs', this.form)
+				this.$http.post('http://recruitment-api.test/jobs', this.form)
 						.then(response => {
 							this.$notify({
 								type: 'success',
 								title: 'well done',
-								text: ''
+								text: response.data.message
 							});
-							this.getRecords();
-						})*/
+							this.initForm();
+						})
+						.catch(error => {
+							this.$notify({
+								type: 'error',
+								title: 'Something is bad',
+								text: 'Please take a look and try again'
+							});
+						})
 			}
 		}
 }
