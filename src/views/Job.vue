@@ -60,6 +60,20 @@
             </div>
           </div>
         </div>
+        <div class="inline-flex margin-b-10">
+          <button 
+            class="bg-blue-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            @click="prev"
+          >
+            Prev
+          </button>
+          <button 
+            class="bg-blue-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+            @click="next"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
 
@@ -83,11 +97,12 @@ export default {
       this.getRecords();  
     },
     data(){
-        return{
-            name: 'Job list',
-            jobs: {},
-            modalForm: false
-        }
+      return{
+        name: 'Job list',
+        jobs: {},
+        pagInfo: {},
+        modalForm: false
+      }
     },
     methods: {
       showModalForm(){
@@ -96,13 +111,19 @@ export default {
       getRecords(){
         this.$http.get('http://recruitment-api.test/jobs')
             .then(response => {
-                this.jobs = response.data.data.data
-                console.log(this.jobs)
+              this.pagInfo = response.data
+              this.jobs = response.data.data.data
             })
       },
       close(){
         this.modalForm = false;
         this.getRecords();
+      },
+      prev(){
+
+      },
+      next(){
+
       }
     }
 }

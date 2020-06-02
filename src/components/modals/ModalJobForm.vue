@@ -22,7 +22,7 @@
 									placeholder="Microsoft" 
 									v-model="form.company_name"
 								>
-								<p class="text-red-500 text-xs italic" v-if="errors.company_name">Please fill out this field.</p>
+								<p class="text-red-500 text-xs italic" v-if="errors.company_name">{{errors.company_name[0]}}</p>
 							</div>
 							<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -35,7 +35,7 @@
 									placeholder="Back-end dev" 
 									v-model="form.title"
 								>
-								<p class="text-red-500 text-xs italic" v-if="errors.title">Please fill out this field.</p>
+								<p class="text-red-500 text-xs italic" v-if="errors.title">{{errors.title[0]}}</p>
 							</div>
 							<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -48,7 +48,7 @@
 									placeholder="5" 
 									v-model="form.experience_years"
 								>
-								<p class="text-red-500 text-xs italic" v-if="errors.experience_years">Please fill out this field.</p>
+								<p class="text-red-500 text-xs italic" v-if="errors.experience_years">{{errors.experience_years[0]}}</p>
 							</div>
 							<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 								<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
@@ -96,6 +96,7 @@
 									v-model="form.description"
 								>
 								</textarea>
+								<p class="text-red-500 text-xs italic" v-if="errors.description">{{errors.description[0]}}</p>
 							</div>
 						</div>
 						<div class="flex flex-wrap -mx-3 mb-2">
@@ -160,6 +161,7 @@ export default {
 					catg_position_id: 3,
 					position_type: 'remote'
 				}
+				this.errors = {}
 			},
 			getRecords(){
 				this.$http.get('http://recruitment-api.test/categories')
@@ -178,11 +180,11 @@ export default {
 							this.initForm();
 						})
 						.catch(error => {
-							console.log(error);
+							this.errors = error.response.data.errors;
 							this.$notify({
 								type: 'error',
 								title: 'Something is bad',
-								text: 'Please take a look and try again'
+								text: error.response.data.message
 							});
 						})
 			}
