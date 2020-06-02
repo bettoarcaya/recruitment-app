@@ -8,11 +8,21 @@
 			</button>
 		</div>
 		<div class="flex mb-4 container mx-auto">
-			<div class="w-1/3">
+			<div 
+				class="w-1/3"
+				v-for="candidate in candidates"
+				:key="candidate.id"
+			>
 				<div class="max-w-sm rounded overflow-hidden shadow-lg">
-					<img class="w-full" src="../assets/logo.png" alt="Sunset in the mountains">
+					<div class="bg-teal-500 padd-20">
+						<img 
+							class="half-size rounded-full mx-auto" 
+							src="../assets/default-user-icon.jpg" 
+							:alt="candidate.firstname"
+						>
+					</div>
 					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+						<div class="font-bold text-xl mb-2"> {{candidate.firstname}} {{candidate.lastname}} </div>
 						<p class="text-gray-700 text-base">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
 						</p>
@@ -24,8 +34,6 @@
 					</div>
 				</div>
 			</div>
-			<!--<div class="w-1/3 bg-gray-500 h-12"></div>
-			<div class="w-1/3 bg-gray-400 h-12"></div>-->
 		</div>
 	</div>
 </template>
@@ -33,9 +41,21 @@
 <script>
 export default {
 	name: 'Candidate',
+	mounted(){
+		this.getRecords();
+	},
 	data(){
 		return {
-			name: 'Candidate list'
+			name: 'Candidate list',
+			candidates: {}
+		}
+	},
+	methods: {
+		getRecords(){
+			this.$http.get('http://recruitment-api.test/registration')
+					.then(response => {
+						this.candidates = response.data.data
+					})
 		}
 	}
 }

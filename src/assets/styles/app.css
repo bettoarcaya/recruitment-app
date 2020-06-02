@@ -29,6 +29,11 @@
 .card {
     @apply w-full;
 }
+.half-size {
+  width: 50%;
+  height: 50%;
+}
+
    /* Modal Header */
 .modal-header {
     padding: 20px;
@@ -82,6 +87,9 @@
   }
   .padd-r-10{
     padding-right: 10px;
+  }
+  .padd-20 {
+    padding: 20px;
   }
 
 input[type="radio"] + label span {
