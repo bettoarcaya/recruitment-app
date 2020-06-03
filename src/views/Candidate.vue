@@ -27,12 +27,12 @@
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
 						</p>-->
 						<div class="flex mb-4">
-							<div class="w-1/2 text-left">
+							<div class="w-1/4 text-left">
 								<p>Age: </p>
 								<p>Email: </p>
 								<p>Profile: </p>
 							</div>
-							<div class="w-1/2 text-left">
+							<div class="w-3/4 text-left">
 								<p>24</p>
 								<p>{{candidate.email}}</p>
 								<p>Dev</p>
