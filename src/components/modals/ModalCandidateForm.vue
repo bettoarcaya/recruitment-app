@@ -15,12 +15,17 @@
 				</div>
 				<div class="modal-footer">
 					<div class="inline-flex">
-						<button class="btn btn-blue" @click="$emit('close')">
-							Cancel
+						<button 
+							class="btn btn-blue margin-l-5" 
+							@click="prev"
+							v-if="step != 1"
+						>
+							Back
 						</button>
 						<button 
 							class="btn btn-blue margin-l-5" 
 							@click="next"
+							v-if="step != 3"
 						>
 							Next
 						</button>
@@ -46,6 +51,14 @@ export default {
 		return {
 			step: 1,
 			steps: ['Personal data', 'Backgrounds', 'Work experiences']
+		}
+	},
+	methods: {
+		next(){
+			this.step += 1
+		},
+		prev(){
+			this.step -= 1
 		}
 	}
 
