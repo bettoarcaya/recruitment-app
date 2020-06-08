@@ -62,16 +62,18 @@
         </div>
         <div class="inline-flex margin-b-10">
           <button 
-            class="bg-blue-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+            class="bg-white-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
             @click="prev"
+            v-if="pagInfo.prev_page_url"
           >
-            Prev
+            <img class="w-5 h-5" src="../assets/arrow-left-solid.svg" alt="Prev page">
           </button>
           <button 
-            class="bg-blue-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+            class="bg-white-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
             @click="next"
+            v-if="pagInfo.next_page_url"
           >
-            Next
+            <img class="w-5 h-5" src="../assets/arrow-right-solid.svg" alt="Next page">
           </button>
         </div>
       </div>
@@ -94,11 +96,12 @@ export default {
       ModalJobForm,
     },
     mounted(){
-      this.getRecords();  
+      this.getRecords(this.baseUrl);  
     },
     data(){
       return{
         name: 'Job list',
+        baseUrl: `${this.$baseUrl}/jobs`,
         jobs: {},
         pagInfo: {},
         modalForm: false
@@ -108,22 +111,22 @@ export default {
       showModalForm(){
         //this.$modal.show(ModalJobForm)
       },
-      getRecords(){
-        this.$http.get('http://recruitment-api.test:40/jobs')
+      getRecords(resource){
+        this.$http.get(resource)
             .then(response => {
-              this.pagInfo = response.data
+              this.pagInfo = response.data.data
               this.jobs = response.data.data.data
             })
       },
       close(){
         this.modalForm = false;
-        this.getRecords();
+        this.getRecords(this.baseUrl);
       },
       prev(){
-
+        this.getRecords(this.pagInfo.prev_page_url)
       },
       next(){
-
+        this.getRecords(this.pagInfo.next_page_url)
       }
     }
 }

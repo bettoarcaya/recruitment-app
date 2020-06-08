@@ -59,14 +59,14 @@ export default {
 	data(){
 		return {
 			name: 'Candidate list',
+			baseUrl: `${this.$baseUrl}`,
 			candidates: {}
 		}
 	},
 	methods: {
 		getRecords(){
-			this.$http.get('http://recruitment-api.test:40/registration')
+			this.$http.get(`${this.baseUrl}/registration`)
 					.then(response => {
-						console.log(response.data)
 						this.candidates = response.data.data.candidates
 					})
 		}

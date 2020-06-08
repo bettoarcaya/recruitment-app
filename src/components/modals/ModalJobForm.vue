@@ -145,7 +145,8 @@ export default {
 			return {
 				jobCategories: {},
 				form: {},
-				errors: {}
+				errors: {},
+				baseUrl: `${this.$baseUrl}`
 			}
     },
     mounted(){
@@ -164,13 +165,13 @@ export default {
 				this.errors = {}
 			},
 			getRecords(){
-				this.$http.get('http://recruitment-api.test/categories')
+				this.$http.get(`${this.baseUrl}/categories`)
 					.then(response => {
 							this.jobCategories = response.data.data
 					})
 			},
 			submit(){
-				this.$http.post('http://recruitment-api.test/jobs', this.form)
+				this.$http.post(`${this.baseUrl}/jobs`, this.form)
 						.then(response => {
 							this.$notify({
 								type: 'success',

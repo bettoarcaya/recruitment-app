@@ -6,6 +6,7 @@ import Notifications from 'vue-notification';
 import VModal from 'vue-js-modal'
 
 Vue.prototype.$http = Axios;
+Vue.prototype.$baseUrl = 'http://recruitment-api.test:40';
 
 Vue.config.productionTip = false;
 
