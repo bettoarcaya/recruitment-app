@@ -10,7 +10,7 @@
       </div>
       <div class="container mx-auto">
         <div class="card flex flex-col lg:flex margin-b-10" v-for="job in jobs" :key="job.id">
-          <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+          <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
             <div class="flex flex-no-wrap">
               <div class="w-1/5 flex-none">
                 <img 
@@ -19,7 +19,7 @@
                   src="../assets/logo.png"
                 >
               </div>
-              <div class="w-4/5 flex-none">
+              <div class="w-4/5 flex-none padd-20">
                 <div class="margin-b-9-percent flex flex-col">
                   <!--<p class="text-sm text-gray-600 flex items-center">
                     <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
