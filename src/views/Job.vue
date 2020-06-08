@@ -109,7 +109,7 @@ export default {
         //this.$modal.show(ModalJobForm)
       },
       getRecords(){
-        this.$http.get('http://recruitment-api.test/jobs')
+        this.$http.get('http://recruitment-api.test:40/jobs')
             .then(response => {
               this.pagInfo = response.data
               this.jobs = response.data.data.data

@@ -18,11 +18,11 @@
 						<img 
 							class="half-size rounded-full mx-auto" 
 							src="../assets/default-user-icon.jpg" 
-							:alt="candidate.firstname"
+							:alt="candidate.personal_data.firstname"
 						>
 					</div>
 					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2"> {{candidate.firstname}} {{candidate.lastname}} </div>
+						<div class="font-bold text-xl mb-2"> {{candidate.personal_data.firstname}} {{candidate.personal_data.lastname}} </div>
 						<!--<p class="text-gray-700 text-base">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
 						</p>-->
@@ -33,9 +33,9 @@
 								<p>Profile: </p>
 							</div>
 							<div class="w-3/4 text-left">
-								<p>24</p>
-								<p>{{candidate.email}}</p>
-								<p>Dev</p>
+								<p>{{candidate.personal_data.age}}</p>
+								<p>{{candidate.personal_data.email}}</p>
+								<p>{{candidate.personal_data.work_exp_catg}}</p>
 							</div>
 						</div>
 					</div>
@@ -64,9 +64,10 @@ export default {
 	},
 	methods: {
 		getRecords(){
-			this.$http.get('http://recruitment-api.test/registration')
+			this.$http.get('http://recruitment-api.test:40/registration')
 					.then(response => {
-						this.candidates = response.data.data
+						console.log(response.data)
+						this.candidates = response.data.data.candidates
 					})
 		}
 	}
