@@ -5,6 +5,19 @@
 			<h1 class="float-left font-bold text-2xl">{{ name }}</h1>
 		</div>
 		<div class="container mx-auto">
+			<div 
+				class="card flex flex-col lg:flex margin-b-10"
+				v-if="matches.length == 0">
+				<div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+					<div class="flex flex-no-wrap">
+						<div class="text-gray-900 mb-2">
+							<div class="text-center font-bold text-xl">
+								There are no matches to this Job!
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="card flex flex-col lg:flex margin-b-10" v-for="match in matches" :key="match.id">
 				<div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
 					<div class="flex flex-no-wrap">
@@ -17,18 +30,17 @@
 						</div>
 						<div class="w-4/5 flex-none padd-20">
 							<div class="margin-b-9-percent flex flex-col">
-								<!--<p class="text-sm text-gray-600 flex items-center">
-									<svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-										<path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-									</svg>
-									Members only
-								</p>-->
-								<div class="text-gray-900 font-bold text-xl mb-2 text-left"> 
-									{{match.personal_data.firstname}} {{match.personal_data.lastname}}
+								<p class="text-sm text-gray-600 flex items-center">
+									{{match.percentage}}%
+								</p>
+								<div class="text-gray-900 mb-2">
+									<div class="text-left font-bold text-xl">
+										{{match.personal_data.firstname}} {{match.personal_data.lastname}}
+									</div>
 								</div>
 								<div class="text-left">
 									<p class="text-gray-700 text-base">
-										{{match.percentage}}%
+										
 									</p>
 								</div>
 							</div>
@@ -90,7 +102,6 @@ export default {
 					.then(response => {
 						this.pagInfo = response.data.data.links
 						this.matches = response.data.data.candidates
-						console.log(this.matches)
 					})
 		},
 		next(){

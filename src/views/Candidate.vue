@@ -3,7 +3,10 @@
 		<div></div>
 		<div class="container mx-auto border-b border-black-400">
 			<h1 class="float-left font-bold text-2xl">{{ name }}</h1>
-			<button class="btn btn-blue float-right">
+			<button 
+				class="btn btn-blue float-right"
+				@click="modalForm = true"
+			>
 				Add new candidate
 			</button>
 		</div>
@@ -47,12 +50,23 @@
 				</div>
 			</div>
 		</div>
+
+		<modal-candidate-form 
+      v-if="modalForm"
+      @close="close()"
+    ></modal-candidate-form>
+
 	</div>
 </template>
 
 <script>
+import ModalCandidateForm from '@/components/modals/ModalCandidateForm.vue';
+
 export default {
 	name: 'Candidate',
+	components: {
+		ModalCandidateForm,
+	},
 	mounted(){
 		this.getRecords();
 	},
@@ -60,7 +74,8 @@ export default {
 		return {
 			name: 'Candidate list',
 			baseUrl: `${this.$baseUrl}`,
-			candidates: {}
+			candidates: {},
+			modalForm: false,
 		}
 	},
 	methods: {
@@ -69,6 +84,10 @@ export default {
 					.then(response => {
 						this.candidates = response.data.data.candidates
 					})
+		},
+		close(){
+			this.modalForm = false;
+      this.getRecords(this.baseUrl);
 		}
 	}
 }
