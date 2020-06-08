@@ -91,6 +91,9 @@
   .padd-20 {
     padding: 20px;
   }
+  .padd-10 {
+    padding: 10px;
+  }
 
 input[type="radio"] + label span {
     transition: backgound .2s,

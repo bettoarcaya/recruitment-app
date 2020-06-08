@@ -6,16 +6,16 @@
 		</div>
 		<div class="container mx-auto">
 			<div class="card flex flex-col lg:flex margin-b-10" v-for="match in matches" :key="match.id">
-				<div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+				<div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
 					<div class="flex flex-no-wrap">
-						<div class="w-1/5 flex-none">
-							<img 
-								class="w-100 h-100 mr-4" 
-								alt="Vue logo" 
-								src="../assets/logo.png"
+						<div class="w-1/5 flex-none bg-teal-500 padd-10">
+							<img
+								class="rounded-full mx-auto" 
+								src="../assets/default-user-icon.jpg" 
+								:alt="match.personal_data.firstname"
 							>
 						</div>
-						<div class="w-4/5 flex-none">
+						<div class="w-4/5 flex-none padd-20">
 							<div class="margin-b-9-percent flex flex-col">
 								<!--<p class="text-sm text-gray-600 flex items-center">
 									<svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -24,19 +24,19 @@
 									Members only
 								</p>-->
 								<div class="text-gray-900 font-bold text-xl mb-2 text-left"> 
-									Name
+									{{match.personal_data.firstname}} {{match.personal_data.lastname}}
 								</div>
 								<div class="text-left">
 									<p class="text-gray-700 text-base">
-										...
+										{{match.percentage}}%
 									</p>
 								</div>
 							</div>
 							<div class="flex items-center">
 								<!--<img class="w-10 h-10 rounded-full mr-4" src="../assets/logo.png" alt="Avatar of Jonathan Reinink">-->
 								<div class="text-sm">
-									<p class="text-gray-900 leading-none"></p>
-									<p class="text-gray-600">Aug 18</p>
+									<p class="text-gray-900 leading-none">{{match.personal_data.work_exp_catg}}</p>
+									<p class="text-gray-600">{{match.personal_data.age}} Years</p>
 								</div>
 								<div class="container">
 									<button
