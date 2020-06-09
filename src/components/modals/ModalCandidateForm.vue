@@ -73,9 +73,9 @@ export default {
 					firstname: '',
 					lastname: '',
 					email: '',
-					gender: '',
+					gender: 'none',
 					born_date: '',
-					work_exp_catg: ''
+					work_exp_catg: '3'
 				},
 				background: [],
 				work_experience: []

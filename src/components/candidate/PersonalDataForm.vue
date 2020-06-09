@@ -56,6 +56,78 @@
 					>
 					<p class="text-red-500 text-xs italic" v-if="errors.born_date">{{errors.born_date[0]}}</p>
 				</div>
+				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-gender">
+						Gender
+					</label>
+					<div class="inline-flex">
+						<div class="margin-l-5" style="magin-left: 10px;">
+							<input 
+								id="radio1" 
+								type="radio" 
+								name="radio" 
+								class="hidden"
+								value="male"
+								v-model="person.gender"
+							/>
+							<label for="radio1" class="flex items-center cursor-pointer">
+								<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+								Male
+							</label>
+						</div>
+						<div>
+							<input 
+								id="radio2" 
+								type="radio" 
+								name="radio"
+								class="hidden"
+								value="female"
+								v-model="person.gender"
+							/>
+							<label for="radio2" class="flex items-center cursor-pointer">
+								<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+								Female
+							</label>
+						</div>
+						<div>
+							<input 
+								id="radio3" 
+								type="radio" 
+								name="radio"
+								class="hidden"
+								value="none"
+								v-model="person.gender"
+							/>
+							<label for="radio3" class="flex items-center cursor-pointer">
+								<span class="w-4 h-4 inline-block mr-1 rounded-full border border-grey"></span>
+								None
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex flex-wrap -mx-3 mb-2">
+				<div class="w-full px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-profile">
+						Profile
+					</label>
+					<div class="relative">
+						<select 
+							class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+							id="grid-category" 
+							v-model="person.work_exp_catg"
+						>
+							<option 
+								v-for="jobCateg in jobCategories" 
+								:key="jobCateg.id" 
+								:value="jobCateg.id"
+							>
+								{{jobCateg.name}}
+							</option>
+						</select>
+						<p class="text-red-500 text-xs italic" v-if="errors.work_exp_catg">Please fill out this field.</p>
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>
@@ -68,17 +140,24 @@ export default {
 		errors: Object
 	},
 	mounted(){
-		console.log('props', this.person)
+		this.getRecords()
 	},
 	data() {
 		return {
-
+			baseUrl: `${this.$baseUrl}`,
+			jobCategories: {},
 		}
 	},
 	methods: {
 		submit(){
 			
-		}
+		},
+		getRecords(){
+			this.$http.get(`${this.baseUrl}/categories`)
+				.then(response => {
+						this.jobCategories = response.data.data
+				})
+		},
 	}
 }
 </script>
