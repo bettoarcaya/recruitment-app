@@ -126,10 +126,17 @@
 				</div>
 				<div class="modal-footer">
 					<div class="inline-flex">
-						<button class="btn btn-blue" @click="$emit('close')">
+						<button 
+							class="btn btn-blue" 
+							@click="$emit('close')"
+						>
 							Cancel
 						</button>
-						<button type="submit" class="btn btn-blue margin-l-5" @click="submit">
+						<button 
+							type="submit" 
+							class="btn btn-blue margin-l-5" 
+							@click="submit"
+						>
 							Submit
 						</button>
 					</div>

@@ -9,9 +9,17 @@
 					<h2 class="text-left font-bold text-xl">Add new candidate</h2>
 				</div>
 				<div class="modal-body">
-					<personal-data-form v-if="step == 1"></personal-data-form>
-					<background-data-form v-if="step == 2"></background-data-form>
-					<work-experience-data-form v-if="step == 3"></work-experience-data-form>
+					<personal-data-form 
+						:person.sync="form.person"
+						:errors.sync="errors.person"
+						v-if="step == 1"
+					></personal-data-form>
+					<background-data-form 
+						v-if="step == 2"
+					></background-data-form>
+					<work-experience-data-form 
+						v-if="step == 3"
+					></work-experience-data-form>
 				</div>
 				<div class="modal-footer">
 					<div class="inline-flex">
@@ -47,13 +55,37 @@ export default {
 		BackgroundDataForm,
 		WorkExperienceDataForm
 	},
+	mounted(){
+		this.initForm()
+	},
 	data() {
 		return {
 			step: 1,
-			steps: ['Personal data', 'Backgrounds', 'Work experiences']
+			steps: ['Personal data', 'Backgrounds', 'Work experiences'],
+			form: {},
+			errors: {}
 		}
 	},
 	methods: {
+		initForm(){
+			this.form = {
+				person: {
+					firstname: '',
+					lastname: '',
+					email: '',
+					gender: '',
+					born_date: '',
+					work_exp_catg: ''
+				},
+				background: [],
+				work_experience: []
+			}
+			this.errors = {
+				person: {},
+				background: [],
+				work_experience: []
+			}
+		},
 		next(){
 			this.step += 1
 		},
