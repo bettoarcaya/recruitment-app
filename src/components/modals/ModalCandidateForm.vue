@@ -63,7 +63,7 @@ export default {
 			step: 1,
 			steps: ['Personal data', 'Backgrounds', 'Work experiences'],
 			form: {},
-			errors: {}
+			errors: {},
 		}
 	},
 	methods: {
