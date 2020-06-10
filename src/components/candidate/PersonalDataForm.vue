@@ -46,14 +46,13 @@
 					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-born-date">
 						Born date
 					</label>
-					<input 
-						class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
-						id="grid-born-date" 
-						type="date" 
-						placeholder="aaaa-mm-dd"
-						value="1994-06-14"
-						v-model="person.born_date"
-					>
+					<datepicker
+						class="appearance-none block w-full bg-white-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						v-model="person.born_date" 
+						name="born_date"
+						format="yyyy-MM-dd"
+						placeholder="yyyy-mm-dd"
+					></datepicker>
 					<p class="text-red-500 text-xs italic" v-if="errors.born_date">{{errors.born_date[0]}}</p>
 				</div>
 				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -134,11 +133,16 @@
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker';
+
 export default {
 	props: {
 		person: Object,
 		errors: Object
 	},
+	components: {
+    Datepicker
+  },
 	mounted(){
 		this.getRecords()
 	},
