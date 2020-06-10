@@ -47,7 +47,7 @@
 						Born date
 					</label>
 					<datepicker
-						class="appearance-none block w-full bg-white-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+						input-class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
 						v-model="person.born_date" 
 						name="born_date"
 						format="yyyy-MM-dd"
