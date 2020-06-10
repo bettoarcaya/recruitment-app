@@ -41,16 +41,30 @@
 				</div>
 			</div>
 		</form>
-		<div class="container mx-auto">
+		<div 
+			class="container mx-auto"
+			v-if="work_experience.length > 0"
+		>
 			<table class="table-auto">
 				<thead>
 					<tr>
-
+						<th class="px-4 py-2" width="90%">Position</th>
+						<th class="px-4 py-2">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-
+					<tr v-for="(wx, index) in work_experience" :key="index">
+						<th class="border px-4 py-2">
+							{{wx.position}}
+						</th>
+						<th class="border px-4 py-2">
+							<button 
+								class="bg-white-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+								@click.prevent="del(index)"
+							>
+								<img class="w-5 h-5" src="@/assets/trash-solid.svg">
+							</button>
+						</th>
 					</tr>
 				</tbody>
 			</table>
@@ -78,6 +92,26 @@ export default {
 	methods: {
 		submit(){
 
+		},
+		initBForm(){
+			this.wform = {
+				start: '',
+				end: '',
+				position: '',
+				time: 0
+			}
+		},
+		add() {
+			this.work_experience.push({
+				start: this.wform.start,
+				end: this.wform.end,
+				position: this.wform.position,
+				time: 0
+			})
+			this.initBForm()
+		},
+		del(index) {
+			this.work_experience.splice(index, 1)
 		}
 	}
 }

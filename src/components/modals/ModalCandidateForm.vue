@@ -111,7 +111,7 @@ export default {
 				start: '',
 				end: '',
 				position: '',
-				time: 0	
+				time: 0
 			}
 		},
 		next(){
