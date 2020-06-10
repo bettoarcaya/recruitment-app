@@ -20,7 +20,10 @@
 						:errors.sync="errors.background"
 						v-if="step == 2"
 					></background-data-form>
-					<work-experience-data-form 
+					<work-experience-data-form
+						:wform="workExperienceForm"
+						:work_experience.sync="form.work_experience"
+						:errors.sync="errors.work_experience"
 						v-if="step == 3"
 					></work-experience-data-form>
 				</div>
@@ -75,6 +78,7 @@ export default {
 			form: {},
 			errors: {},
 			backgroundForm: {},
+			workExperienceForm: {},
 			requires: {
 				person: ['firstname', 'lastname', 'email']
 			}
@@ -102,6 +106,12 @@ export default {
 			this.backgroundForm = {
 				name: '',
 				academic_level: ''	
+			}
+			this.workExperienceForm = {
+				start: '',
+				end: '',
+				position: '',
+				time: 0	
 			}
 		},
 		next(){
