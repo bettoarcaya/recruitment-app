@@ -14,7 +14,9 @@
 						:errors.sync="errors.person"
 						v-if="step == 1"
 					></personal-data-form>
-					<background-data-form 
+					<background-data-form
+						:background.sync="form.background"
+						:errors.sync="errors.background"
 						v-if="step == 2"
 					></background-data-form>
 					<work-experience-data-form 
@@ -64,6 +66,9 @@ export default {
 			steps: ['Personal data', 'Backgrounds', 'Work experiences'],
 			form: {},
 			errors: {},
+			requires: {
+				person: ['firstname', 'lastname', 'email']
+			}
 		}
 	},
 	methods: {
@@ -77,7 +82,10 @@ export default {
 					born_date: '',
 					work_exp_catg: '3'
 				},
-				background: [],
+				background: [{
+					name: '',
+					academic_level: ''	
+				}],
 				work_experience: []
 			}
 			this.errors = {
