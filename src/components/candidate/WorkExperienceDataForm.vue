@@ -27,7 +27,7 @@
 						v-model="wform.end"
 					></datepicker>
 				</div>
-				<div class="w-full px-3 mb-6 md:mb-0">
+				<div class="w-full md:w-5/6 px-3 mb-6 md:mb-0">
 					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-position">
 						Position
 					</label>
@@ -38,6 +38,17 @@
 						placeholder="Backend lead developer"
 						v-model="wform.position"
 					>
+				</div>
+				<div class="w-full md:w-1/6 px-3 mb-6 md:mb-0">
+					<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+						...
+					</label>
+					<button 
+						class="bg-white-500 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+						@click.prevent="add"
+					>
+						<img class="w-5 h-5" src="@/assets/plus-solid.svg" alt="Next page">
+					</button>
 				</div>
 			</div>
 		</form>
