@@ -17,6 +17,9 @@
 .btn-green {
     @apply bg-green-500 text-white;
 }
+.btn-teal {
+  @apply bg-teal-500 text-white;
+}
 .margin-b-10 {
     margin-bottom: 10px;
 }

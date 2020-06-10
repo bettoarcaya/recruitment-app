@@ -15,6 +15,7 @@
 						v-if="step == 1"
 					></personal-data-form>
 					<background-data-form
+						:bform="backgroundForm"
 						:background.sync="form.background"
 						:errors.sync="errors.background"
 						v-if="step == 2"
@@ -38,6 +39,13 @@
 							v-if="step != 3"
 						>
 							Next
+						</button>
+						<button 
+							class="btn btn-teal margin-l-5" 
+							@click="submit"
+							v-if="step == 3"
+						>
+							Submit
 						</button>
 					</div>
 				</div>
@@ -66,6 +74,7 @@ export default {
 			steps: ['Personal data', 'Backgrounds', 'Work experiences'],
 			form: {},
 			errors: {},
+			backgroundForm: {},
 			requires: {
 				person: ['firstname', 'lastname', 'email']
 			}
@@ -82,16 +91,17 @@ export default {
 					born_date: '',
 					work_exp_catg: '3'
 				},
-				background: [{
-					name: '',
-					academic_level: ''	
-				}],
-				work_experience: []
+				background: [],
+				work_experience: [],
 			}
 			this.errors = {
 				person: {},
 				background: [],
 				work_experience: []
+			}
+			this.backgroundForm = {
+				name: '',
+				academic_level: ''	
 			}
 		},
 		next(){
@@ -99,6 +109,9 @@ export default {
 		},
 		prev(){
 			this.step -= 1
+		},
+		submit(){
+
 		}
 	}
 
