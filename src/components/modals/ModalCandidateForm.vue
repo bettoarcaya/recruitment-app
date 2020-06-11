@@ -74,13 +74,13 @@ export default {
 	data() {
 		return {
 			step: 1,
-			steps: ['Personal data', 'Backgrounds', 'Work experiences'],
+			steps: ['person'],
 			form: {},
 			errors: {},
 			backgroundForm: {},
 			workExperienceForm: {},
 			requires: {
-				person: ['firstname', 'lastname', 'email']
+				person: ['firstname', 'lastname', 'email', 'born_date']
 			}
 		}
 	},
@@ -99,7 +99,12 @@ export default {
 				work_experience: [],
 			}
 			this.errors = {
-				person: {},
+				person: {
+					firstname: [],
+					lastname: [],
+					email: [],
+					born_date: []
+				},
 				background: [],
 				work_experience: []
 			}
@@ -115,13 +120,29 @@ export default {
 			}
 		},
 		next(){
-			this.step += 1
+			if( this.validateStep() ) {
+				this.step += 1
+			}
 		},
 		prev(){
 			this.step -= 1
 		},
 		submit(){
 			console.log(this.form)
+		},
+		validateStep() {
+			const st = this.steps[this.step - 1]
+			const rqs = this.requires[st]
+			let flag = true
+
+			rqs.map(rq => {
+				if( this.form[st][rq] == '' ) {
+					flag = false
+					this.errors[st][rq].push('This field is required')
+				}
+			})
+
+			return flag;
 		}
 	}
 
