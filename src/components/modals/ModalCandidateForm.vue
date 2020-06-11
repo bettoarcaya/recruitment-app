@@ -73,6 +73,7 @@ export default {
 	},
 	data() {
 		return {
+			baseUrl: `${this.$baseUrl}`,
 			step: 1,
 			steps: ['person'],
 			form: {},
@@ -129,6 +130,22 @@ export default {
 		},
 		submit(){
 			console.log(this.form)
+			this.$http.post(`${this.baseUrl}/registration`, this.form)
+					.then(response => {
+						this.$notify({
+								type: 'success',
+								title: 'well done',
+								text: response.data.message
+							});
+							this.initForm();
+					})
+					.catch(error => {
+						this.$notify({
+								type: 'error',
+								title: 'Something is bad',
+								text: ''
+							});
+					})
 		},
 		validateStep() {
 			const st = this.steps[this.step - 1]
