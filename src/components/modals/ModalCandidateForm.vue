@@ -121,7 +121,7 @@ export default {
 			this.step -= 1
 		},
 		submit(){
-
+			console.log(this.form)
 		}
 	}
 

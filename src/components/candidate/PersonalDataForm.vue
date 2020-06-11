@@ -52,6 +52,7 @@
 						name="born_date"
 						format="yyyy-MM-dd"
 						placeholder="yyyy-mm-dd"
+						typeable="true"
 					></datepicker>
 					<p class="text-red-500 text-xs italic" v-if="errors.born_date">{{errors.born_date[0]}}</p>
 				</div>

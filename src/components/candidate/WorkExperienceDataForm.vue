@@ -13,6 +13,7 @@
 						format="yyyy-MM-dd"
 						placeholder="yyyy-mm-dd"
 						v-model="wform.start"
+						typeable="true"
 					></datepicker>
 				</div>
 				<div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -25,6 +26,7 @@
 						format="yyyy-MM-dd"
 						placeholder="yyyy-mm-dd"
 						v-model="wform.end"
+						typeable="true"
 					></datepicker>
 				</div>
 				<div class="w-full md:w-5/6 px-3 mb-6 md:mb-0">
@@ -114,15 +116,21 @@ export default {
 		},
 		add() {
 			this.work_experience.push({
-				start: this.wform.start,
-				end: this.wform.end,
+				start: this.transform(this.wform.start),
+				end: this.transform(this.wform.end),
 				position: this.wform.position,
-				time: 0
+				time: this.calculateYears(this.wform.start, this.wform.end)
 			})
 			this.initBForm()
 		},
 		del(index) {
 			this.work_experience.splice(index, 1)
+		},
+		transform(date) {
+			return `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`
+		},
+		calculateYears(start, end) {
+			return end.getFullYear() - start.getFullYear();
 		}
 	}
 }
