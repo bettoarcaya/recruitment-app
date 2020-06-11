@@ -132,7 +132,7 @@ export default {
 		},
 		validateStep() {
 			const st = this.steps[this.step - 1]
-			const rqs = this.requires[st]
+			const rqs = this.requires[st] ? this.requires[st] : []
 			let flag = true
 
 			rqs.map(rq => {
