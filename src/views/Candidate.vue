@@ -10,7 +10,7 @@
 				Add new candidate
 			</button>
 		</div>
-		<div class="flex mb-4 container mx-auto">
+		<div class="flex flex-wrap mb-4 container mx-auto">
 			<div 
 				class="w-1/3"
 				v-for="candidate in candidates"

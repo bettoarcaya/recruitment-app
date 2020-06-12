@@ -20,6 +20,32 @@
 .btn-teal {
   @apply bg-teal-500 text-white;
 }
+
+.card {
+  @apply w-full;
+}
+
+.half-size {
+  width: 50%;
+  height: 50%;
+}
+
+input[type="radio"] + label span {
+  transition: backgound .2s,
+  transform .2s;
+}
+input[type="radio"] + label span:hover,
+  input[type="radio"] + label:hover span{
+  transform: scale(1.2);
+} 
+input[type="radio"]:checked + label span {
+  background-color: #00b7ac;
+  box-shadow: 0px 0px 0px 2px white inset;
+}
+input[type="radio"]:checked + label{
+ color: #00b7ac;
+}
+
 .margin-b-10 {
     margin-bottom: 10px;
 }
@@ -29,91 +55,60 @@
 .margin-b-9-percent {
   margin-bottom: 9%;
 }
-.card {
-    @apply w-full;
+.margin-t-10 {
+  margin-top: 10px;
 }
-.half-size {
-  width: 50%;
-  height: 50%;
-}
-
-   /* Modal Header */
+/* Modal Header */
 .modal-header {
-    padding: 20px;
-    background-color: #00b7ac;
-    color: white;
-  }
-  
-  /* Modal Body */
-  .modal-body {padding: 20px}
-  
-  /* Modal Footer */
-  .modal-footer {
-    padding: 20px;
-    /*background-color: #00b7ac;*/
-    color: white;
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    margin-top: 10%;
-    padding: 0;
-    border: 1px solid #888;
-    width: 35%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-  }
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
-
-  
-  /* Add Animation */
-  @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-  }
-  .margin-l-5 {
-    margin-left: 5px;
-  }
-  .padd-r-10{
-    padding-right: 10px;
-  }
-  .padd-20 {
-    padding: 20px;
-  }
-  .padd-10 {
-    padding: 10px;
-  }
-
-input[type="radio"] + label span {
-    transition: backgound .2s,
-    transform .2s;
-}
-
-input[type="radio"] + label span:hover,
-input[type="radio"] + label:hover span{
-  transform: scale(1.2);
-} 
-
-input[type="radio"]:checked + label span {
+  padding: 20px;
   background-color: #00b7ac;
-  box-shadow: 0px 0px 0px 2px white inset;
+  color: white;
+}
+/* Modal Body */
+.modal-body {padding: 20px}
+/* Modal Footer */
+.modal-footer {
+  padding: 20px;
+  /*background-color: #00b7ac;*/
+  color: white;
+}
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  margin-top: 10%;
+  padding: 0;
+  border: 1px solid #888;
+  width: 35%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
 }
 
-input[type="radio"]:checked + label{
-   color: #00b7ac;
+.padd-r-10{
+  padding-right: 10px;
+}
+.padd-20 {
+  padding: 20px;
+}
+.padd-10 {
+  padding: 10px;
 }
 
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
