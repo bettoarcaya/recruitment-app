@@ -4,18 +4,17 @@
 
 @tailwind utilities;
 
-
 .btn {
-    @apply font-bold py-2 px-4 rounded;
+  @apply font-bold py-2 px-4 rounded;
 }
 .btn-blue {
-    @apply bg-blue-500 text-white;
+  @apply bg-blue-500 text-white;
 }
 .btn-blue:hover {
-    @apply bg-blue-700;
+  @apply bg-blue-700;
 }
 .btn-green {
-    @apply bg-green-500 text-white;
+  @apply bg-green-500 text-white;
 }
 .btn-teal {
   @apply bg-teal-500 text-white;
@@ -31,23 +30,22 @@
 }
 
 input[type="radio"] + label span {
-  transition: backgound .2s,
-  transform .2s;
+  transition: backgound 0.2s, transform 0.2s;
 }
 input[type="radio"] + label span:hover,
-  input[type="radio"] + label:hover span{
+input[type="radio"] + label:hover span {
   transform: scale(1.2);
-} 
+}
 input[type="radio"]:checked + label span {
   background-color: #00b7ac;
   box-shadow: 0px 0px 0px 2px white inset;
 }
-input[type="radio"]:checked + label{
- color: #00b7ac;
+input[type="radio"]:checked + label {
+  color: #00b7ac;
 }
 
 .margin-b-10 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .margin-l-5 {
   margin-left: 5px;
@@ -65,7 +63,9 @@ input[type="radio"]:checked + label{
   color: white;
 }
 /* Modal Body */
-.modal-body {padding: 20px}
+.modal-body {
+  padding: 20px;
+}
 /* Modal Footer */
 .modal-footer {
   padding: 20px;
@@ -81,7 +81,7 @@ input[type="radio"]:checked + label{
   padding: 0;
   border: 1px solid #888;
   width: 35%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
@@ -92,12 +92,12 @@ input[type="radio"]:checked + label{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: table;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
-.padd-r-10{
+.padd-r-10 {
   padding-right: 10px;
 }
 .padd-20 {
@@ -109,6 +109,12 @@ input[type="radio"]:checked + label{
 
 /* Add Animation */
 @keyframes animatetop {
-  from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
