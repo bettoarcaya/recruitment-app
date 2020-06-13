@@ -5,6 +5,7 @@ import Axios from "axios";
 import Notifications from "vue-notification";
 import VModal from "vue-js-modal";
 import Vuex from "vuex";
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.prototype.$http = Axios;
 Vue.prototype.$baseUrl = "http://recruitment-api.test:40";
