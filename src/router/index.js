@@ -5,8 +5,10 @@ import Job from "../views/Job.vue";
 import Match from "../views/Match.vue";
 import Candidate from "../views/Candidate.vue";
 import Login from "../views/Auth/Login.vue";
+import Vuex from "vuex";
 
 Vue.use(VueRouter);
+Vue.use(Vuex);
 
 const routes = [
   {
