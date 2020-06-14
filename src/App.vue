@@ -1,21 +1,28 @@
 <template>
   <div id="app">
-    <nav-bar-component/>
-    <router-view/>
-    <notifications/>
+    <nav-bar-component v-if="logged"></nav-bar-component>
+    <router-view />
+    <notifications />
   </div>
 </template>
 
 <script>
-
-import NavBarComponent from '@/components/NavBar.vue';
+import NavBarComponent from "@/components/NavBar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    NavBarComponent,
+    NavBarComponent
   },
-}
+  mounted() {
+    this.logged = this.$store.getters.isLoggedIn;
+  },
+  data() {
+    return {
+      logged: false
+    };
+  }
+};
 </script>
 
 <style src='@/assets/styles/app.css' />
