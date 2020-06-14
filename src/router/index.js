@@ -5,6 +5,7 @@ import Job from "../views/Job.vue";
 import Match from "../views/Match.vue";
 import Candidate from "../views/Candidate.vue";
 import Login from "../views/Auth/Login.vue";
+import store from '../store.js';
 
 Vue.use(VueRouter);
 
@@ -12,17 +13,29 @@ const routes = [
   {
     path: "/jobs",
     name: "Job",
-    component: Job
+    component: Job,
+    beforeEnter: (to, from, next) => {
+      if (to.name !== 'Login' && !store.getters.isLoggedIn) next({ name: 'Login' })
+      else next()
+    }
   },
   {
     path: "/jobs/match/:id",
     name: "Matches",
-    component: Match
+    component: Match,
+    beforeEnter: (to, from, next) => {
+      if (to.name !== 'Login' && !store.getters.isLoggedIn) next({ name: 'Login' })
+      else next()
+    }
   },
   {
     path: "/candidates",
     name: "Candidates",
-    component: Candidate
+    component: Candidate,
+    beforeEnter: (to, from, next) => {
+      if (to.name !== 'Login' && !store.getters.isLoggedIn) next({ name: 'Login' })
+      else next()
+    }
   },
   {
     path: "/about",
