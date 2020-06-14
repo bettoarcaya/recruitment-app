@@ -2,6 +2,7 @@
   <div>
     <div class="w-full max-w-sm mx-auto my-48">
       <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <p v-if="errorMsg" class="text-red-500 text-xs italic">{{errorMsg}}</p>
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
           <input
@@ -21,7 +22,7 @@
             placeholder="******************"
             v-model="form.password"
           />
-          <p class="text-red-500 text-xs italic">Please choose a password.</p>
+          <p v-if="msg" class="text-red-500 text-xs italic">{{msg}}</p>
         </div>
         <div class="flex items-center justify-between">
           <button
@@ -49,7 +50,9 @@ export default {
   },
   data() {
     return {
-      form: {}
+      form: {},
+      msg: "",
+      errorMsg: ""
     };
   },
   methods: {
@@ -66,6 +69,8 @@ export default {
 
         this.$store.dispatch("login", { token, user });
         this.$router.push("/jobs");
+      } else {
+        this.msg = "Please fill in the empty fields";
       }
     },
     validate() {
