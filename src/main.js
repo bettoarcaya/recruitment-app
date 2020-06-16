@@ -5,6 +5,7 @@ import Axios from "axios";
 import Notifications from "vue-notification";
 import VModal from "vue-js-modal";
 import store from './store';
+import VueTailwind from 'vue-tailwind'
 
 Axios.defaults.headers.common['Autorization'] = `Bearer ${store.state.token}`;
 
@@ -15,6 +16,7 @@ Vue.config.productionTip = false;
 
 Vue.use(Notifications);
 Vue.use(VModal, { dynamic: true, injectModalsContainer: true });
+Vue.use(VueTailwind)
 
 new Vue({
   router,

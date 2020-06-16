@@ -43,6 +43,29 @@
               src="../assets/logo.png"
               alt="Avatar of Jonathan Reinink"
         />-->
+        <t-dropdown :text="this.$store.getters.getUser.name">
+          <ul>
+            <li>
+              <a
+                href="#"
+                class="block no-underline px-4 py-2 hover:bg-blue-500 hover:text-white"
+              >My orders</a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block no-underline px-4 py-2 hover:bg-blue-500 hover:text-white"
+              >Account settings</a>
+            </li>
+            <li class="border-b"></li>
+            <li>
+              <a
+                href="#"
+                class="block no-underline px-4 py-2 hover:bg-blue-500 hover:text-white"
+              >Sign out</a>
+            </li>
+          </ul>
+        </t-dropdown>
       </div>
     </div>
   </nav>
