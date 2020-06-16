@@ -19,6 +19,14 @@
 .btn-teal {
   @apply bg-teal-500 text-white;
 }
+.btn-transparent {
+  @apply bg-transparent;
+  color: teal;
+}
+
+.btn-transparent:hover {
+  @apply bg-teal-500
+}
 
 .card {
   @apply w-full;

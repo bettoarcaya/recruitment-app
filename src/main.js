@@ -7,10 +7,10 @@ import VModal from "vue-js-modal";
 import store from './store';
 import VueTailwind from 'vue-tailwind'
 
-Axios.defaults.headers.common['Autorization'] = `Bearer ${store.state.token}`;
+Axios.defaults.headers.common['token'] = `${store.state.token}`;
 
 Vue.prototype.$http = Axios;
-Vue.prototype.$baseUrl = "http://recruitment-api.test:40";
+Vue.prototype.$baseUrl = "http://recruitment-api.test:40/api/v1";
 
 Vue.config.productionTip = false;
 
