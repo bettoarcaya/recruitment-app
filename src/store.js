@@ -40,7 +40,7 @@ const store = new Vuex.Store({
       commit('SET_TOKEN', token);
       commit('SET_USER', user);
       // set auth header
-      Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      Axios.defaults.headers.common['token'] = `${token}`;
     },
     logout: ({ commit }) => {
       commit('RESET', '');
