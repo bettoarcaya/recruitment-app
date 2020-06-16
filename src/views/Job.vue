@@ -166,7 +166,6 @@ export default {
       this.$http.get(resource).then(response => {
         this.pagInfo = response.data.data;
         this.jobs = response.data.data.data;
-        console.log(this.pagInfo);
       });
     },
     close() {
