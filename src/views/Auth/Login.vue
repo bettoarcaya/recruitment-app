@@ -65,12 +65,15 @@ export default {
     async login() {
       if (this.validate()) {
         const response = await AuthService.login(this.form);
-        const { token, user } = response.data;
 
-        this.errorMsg = !response.success ? response.message : "";
+        if (response.success) {
+          const { token, user } = response.data;
 
-        this.$store.dispatch("login", { token, user });
-        this.$router.push("/jobs");
+          this.$store.dispatch("login", { token, user });
+          this.$router.push("/jobs");
+        } else {
+          this.errorMsg = response.message;
+        }
       } else {
         this.msg = "Please fill in the empty fields";
       }

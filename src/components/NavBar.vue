@@ -62,6 +62,7 @@
               <a
                 href="javascript:void(0)"
                 class="block no-underline px-4 py-2 hover:bg-teal-500 hover:text-white"
+                @click.prevent="logout"
               >Sign out</a>
             </li>
           </ul>
@@ -72,5 +73,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/login");
+    }
+  }
+};
 </script>

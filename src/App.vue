@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav-bar-component v-if="logged"></nav-bar-component>
+    <nav-bar-component v-if="isAuthenticated"></nav-bar-component>
     <router-view />
     <notifications />
   </div>
@@ -14,13 +14,10 @@ export default {
   components: {
     NavBarComponent
   },
-  mounted() {
-    this.logged = this.$store.getters.isLoggedIn;
-  },
-  data() {
-    return {
-      logged: false
-    };
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isLoggedIn;
+    }
   }
 };
 </script>
