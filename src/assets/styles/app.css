@@ -28,6 +28,16 @@
   display: block;
 }
 
+.drop-d-menu {
+  background: transparent;
+  border: transparent;
+}
+
+.drop-d-menu:hover {
+  background: transparent;
+  border: transparent;
+}
+
 .half-size {
   width: 50%;
   height: 50%;

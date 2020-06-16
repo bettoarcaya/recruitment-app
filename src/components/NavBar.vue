@@ -38,30 +38,30 @@
         >Candidates</router-link>
       </div>
       <div>
-        <!-- <img
-              class="w-10 h-10 rounded-full mr-4"
+        <t-dropdown
+          placement="bottom"
+          :button-props="{ baseClass: 'drop-d-menu' }"
+          :visible-arrow="false"
+        >
+          <template v-slot:button-content>
+            <img
+              class="w-10 h-10 rounded-full"
               src="../assets/logo.png"
               alt="Avatar of Jonathan Reinink"
-        />-->
-        <t-dropdown :text="this.$store.getters.getUser.name">
+            />
+          </template>
           <ul>
             <li>
               <a
-                href="#"
-                class="block no-underline px-4 py-2 hover:bg-blue-500 hover:text-white"
-              >My orders</a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block no-underline px-4 py-2 hover:bg-blue-500 hover:text-white"
+                href="javascript:void(0)"
+                class="block no-underline px-4 py-2 hover:bg-teal-500 hover:text-white"
               >Account settings</a>
             </li>
             <li class="border-b"></li>
             <li>
               <a
-                href="#"
-                class="block no-underline px-4 py-2 hover:bg-blue-500 hover:text-white"
+                href="javascript:void(0)"
+                class="block no-underline px-4 py-2 hover:bg-teal-500 hover:text-white"
               >Sign out</a>
             </li>
           </ul>
