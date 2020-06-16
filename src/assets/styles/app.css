@@ -24,6 +24,10 @@
   @apply w-full;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 .half-size {
   width: 50%;
   height: 50%;

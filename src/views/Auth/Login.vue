@@ -65,7 +65,9 @@ export default {
     async login() {
       if (this.validate()) {
         const response = await AuthService.login(this.form);
-        const { token, user } = response;
+        const { token, user } = response.data;
+
+        this.errorMsg = !response.success ? response.message : "";
 
         this.$store.dispatch("login", { token, user });
         this.$router.push("/jobs");
